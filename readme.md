@@ -21,7 +21,7 @@ conda activate proteinbench
 
 ```bash
 cd ProteinBench/tasks
-env CUDA_VISIBLE_DEVICES=0  python main.py --eval_model others --pretrain_model_name esm2_650m --lr 1e-4 --lr_scheduler cosine --config_name fitness_prediction
+env CUDA_VISIBLE_DEVICES=0  python main.py --eval_model function-eval --pretrain_model_name esm2_650m --lr 1e-4 --lr_scheduler cosine --config_name fitness_prediction
 ```
 
 ### Zero-shot Evaluation
