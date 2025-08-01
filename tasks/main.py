@@ -3,9 +3,6 @@ import os
 import random
 import sys; sys.path.append("/liuyunfan/qianyunhang/PFMBench")
 sys.path.append('/liuyunfan/qianyunhang/PFMBench/model_zoom')
-# sys.path.append(os.getcwd())
-# os.environ["WANDB_API_KEY"] = "ddb1831ecbd2bf95c3323502ae17df6e1df44ec0" # gzy
-#os.environ["WANDB_API_KEY"] = "ddb1831ecbd2bf95c3323502ae17df6e1df44ec0" # wh
 os.environ["WANDB_API_KEY"] = "d4aae42367c9842a7ddfdf29258565305fdd5496" # qyh
 import warnings
 warnings.filterwarnings("ignore")
@@ -77,7 +74,7 @@ def create_parser():
     parser.add_argument('--dataset', default='CASP15') # CASP15  CATH4.2 CATH4.3
     parser.add_argument('--data_root', default='/liuyunfan/qianyunhang/PFMBench/dataset')
     ############# 
-    parser.add_argument('--eval_model', default='others', type=str, choices=['structure-to-sequence-eval',  'others'])
+    parser.add_argument('--eval_model', default='function-eval', type=str, choices=['structure-to-sequence-eval',  'function-eval'])
     args = process_args(parser, config_path='../../tasks/configs')
     print(args)
     return args
@@ -118,7 +115,7 @@ def load_callbacks(args):
         if args.lr_scheduler:
             callbacks.append(plc.LearningRateMonitor(
                 logging_interval=None))
-    elif args.eval_model == "others":
+    elif args.eval_model == "function-eval":
         metric = "val_loss" if args.metric is None else args.metric#ProteinInvBench: Recovery Confidence Diversity sc-TM Robustness Efficiency
         direction = "min" if args.direction is None else args.direction#确定监控指标的优化方向，默认为 min（最小化），可以根据 args.direction 更改。
         # metric = "val_loss"
@@ -201,13 +198,13 @@ def main():
     print(f"Generated random seed: {args.seed}")
     pl.seed_everything(args.seed)
     gpu_count = torch.cuda.device_count()
-    if args.eval_model == "others":
+    if args.eval_model == "function-eval":
         data_module = DInterface(**vars(args))
     if args.eval_model == "structure-to-sequence-eval":
         data_module = DInterface_st2s(**vars(args))
   
     # here we perform feature extraction
-    if args.feature_extraction and args.finetune_type == "adapter" and args.eval_model == "others":
+    if args.feature_extraction and args.finetune_type == "adapter" and args.eval_model == "function-eval":
         data_module.data_setup(target="test")
         feature_save_dir = "./feature_extraction" if not args.feature_save_dir else args.feature_save_dir
         os.makedirs(feature_save_dir, exist_ok=True)
@@ -232,7 +229,7 @@ def main():
         print(f"[Feature extraction] Result parquet: {result_parquet}")
         return 
     
-    if args.eval_model == "others":
+    if args.eval_model == "function-eval":
         data_module.data_setup()
         steps_per_epoch = math.ceil(len(data_module.train_set)/args.batch_size/gpu_count)
         args.lr_decay_steps =  steps_per_epoch*args.epoch
@@ -250,7 +247,7 @@ def main():
     # print(f"steps_per_epoch {args.steps_per_epoch},  gpu_count {gpu_count}, batch_size{args.batch_size}")
 
     #args.lr_decay_steps =  steps_per_epoch*args.epoch
-    if args.eval_model == "others":      
+    if args.eval_model == "function-eval":      
         model = MInterface(**vars(args))
         data_module.MInterface = model
     if args.eval_model == "structure-to-sequence-eval":
@@ -299,7 +296,7 @@ def main():
         trainer = Trainer(**vars(trainer_opt))
         print(trainer_config)
         trainer.test(datamodule=data_module, model=model)
-    if args.eval_model == "others":
+    if args.eval_model == "function-eval":
         callbacks = load_callbacks(args)
         trainer_config = {
             "accelerator": "gpu",
