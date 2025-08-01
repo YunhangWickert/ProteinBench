@@ -4,11 +4,11 @@ CUDA_VISIBLE_DEVICES=1 python tasks/main.py --config_name binding_db --pretrain_
 CUDA_VISIBLE_DEVICES=2 python tasks/main.py --config_name binding_db --pretrain_model_name protrek_35m --offline 0 
 
 
-# wandb agent biomap_ai/protein_benchmark/sle0eqeh
+# wandb agent biomap_ai/protein_benchmark/sle0eqeh /liuyunfan/qianyunhang/PFMBench/zeroshot
 
 
 ## ============== sweep 1 ==============
-export PYTHONPATH="/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark:$PYTHONPATH" 
+export PYTHONPATH="/liuyunfan/qianyunhang/PFMBench:$PYTHONPATH" 
 CUDA_VISIBLE_DEVICES=0 wandb agent biomap_ai/protein_benchmark/n0r2hjd8 &
 CUDA_VISIBLE_DEVICES=1 wandb agent biomap_ai/protein_benchmark/n0r2hjd8 &
 CUDA_VISIBLE_DEVICES=2 wandb agent biomap_ai/protein_benchmark/n0r2hjd8 &

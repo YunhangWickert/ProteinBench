@@ -141,15 +141,15 @@ class MSADataset(torch.utils.data.Dataset):
         return self.data[idx]
     
 
-if __name__ == "__main__":
-    msa_data_center = MSADataset(
-        msa_csv_path = "/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/zeroshot/msa/msa_samples_zeroshot_w_pdb.csv",
-        type="center"
-    )
-    print(f"length of msa dataset: {len(msa_data_center)}...")
+# if __name__ == "__main__":
+#     msa_data_center = MSADataset(
+#         msa_csv_path = "/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/zeroshot/msa/msa_samples_zeroshot_w_pdb.csv",
+#         type="center"
+#     )
+#     print(f"length of msa dataset: {len(msa_data_center)}...")
 
-    msa_data_msa = MSADataset(
-        msa_csv_path = "/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/zeroshot/msa/msa_samples_zeroshot_w_pdb.csv",
-        type="msa"
-    )
-    print(f"length of msa dataset: {len(msa_data_msa)}...")
+#     msa_data_msa = MSADataset(
+#         msa_csv_path = "/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/zeroshot/msa/msa_samples_zeroshot_w_pdb.csv",
+#         type="msa"
+#     )
+#     print(f"length of msa dataset: {len(msa_data_msa)}...")

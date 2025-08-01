@@ -26,6 +26,10 @@ class MInterface(MInterface_base):
                 "metric": []
             }
         }
+        # if self.hparams.eval_model == "structure-to-sequence-eval":
+        #     self.cross_entropy = nn.NLLLoss(reduction='none')
+        # else:
+        #     self.cross_entropy = None 
         os.makedirs(os.path.join(self.hparams.res_dir, self.hparams.ex_name), exist_ok=True)
 
     def forward(self, batch, batch_idx):

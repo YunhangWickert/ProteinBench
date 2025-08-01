@@ -8,9 +8,9 @@ import pickle
 from tqdm import tqdm
 from rdkit import Chem
 from rdkit.Chem import AllChem
-import sys; sys.path.append('/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/model_zoom')
+import sys; sys.path.append('/liuyunfan/qianyunhang/PFMBench/model_zoom')
 from model_zoom.esm.utils.sampling import _BatchedESMProteinTensor
-MODEL_ZOOM_PATH = '/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/model_zoom'
+MODEL_ZOOM_PATH = '/liuyunfan/qianyunhang/PFMBench/model_zoom'
 os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
 

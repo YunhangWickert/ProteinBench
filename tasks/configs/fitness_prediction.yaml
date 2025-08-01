@@ -4,12 +4,12 @@ Output:
   offline: ${eval:"int(${oc.env:OFFLINE, '1'})"}
 
 Data:
-  train_data_path: "/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/datasets/fitness_prediction/fitness_prediction_with_glmfold_structure_train.csv"
-  val_data_path: "/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/datasets/fitness_prediction/fitness_prediction_with_glmfold_structure_val.csv"
-  test_data_path: "/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/datasets/fitness_prediction/fitness_prediction_with_glmfold_structure_test.csv"
+  train_data_path: "/liuyunfan/qianyunhang/PFMBench/dataset/fitness_prediction/fitness_prediction_with_glmfold_structure_train.csv"
+  val_data_path: "/liuyunfan/qianyunhang/PFMBench/dataset/fitness_prediction/fitness_prediction_with_glmfold_structure_val.csv"
+  test_data_path: "/liuyunfan/qianyunhang/PFMBench/dataset/fitness_prediction/fitness_prediction_with_glmfold_structure_test.csv"
 
 Training:
-  epoch: 50  # end epoch
+  epoch: 1  # end epoch
   lr: 1e-4  # Learning rate
   lr_scheduler: "cosine"
   check_val_every_n_epoch: 1

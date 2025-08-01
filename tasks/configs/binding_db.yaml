@@ -7,9 +7,9 @@ Data:
   # train_data_path: "/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/datasets/BindingDB/mmseq_outdir/train.csv"
   # val_data_path: "/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/datasets/BindingDB/mmseq_outdir/val.csv"
   # test_data_path: "/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/datasets/BindingDB/mmseq_outdir/test.csv"
-  train_data_path: "/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/datasets/BindingDB/binding_db_train.csv"
-  val_data_path: "/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/datasets/BindingDB/binding_db_valid.csv"
-  test_data_path: "/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/datasets/BindingDB/binding_db_test.csv"
+  train_data_path: "/liuyunfan/qianyunhang/PFMBench/dataset/BindingDB/train.csv"
+  val_data_path: "/liuyunfan/qianyunhang/PFMBench/dataset/BindingDB/val.csv"
+  test_data_path: "/liuyunfan/qianyunhang/PFMBench/dataset/BindingDB/test.csv"
 
 Training:
   epoch: 50  # end epoch

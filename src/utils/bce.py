@@ -28,7 +28,7 @@ if __name__ == "__main__":
     import pandas as pd
     all_csvs = list(
         glob.iglob(
-            "/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/datasets/*/*.csv",
+            "/liuyunfan/qianyunhang/PFMBench/dataset/*/*.csv",
             recursive=True
         )
     )

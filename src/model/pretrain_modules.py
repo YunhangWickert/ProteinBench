@@ -9,17 +9,17 @@ from rdkit.Chem import AllChem
 from src.data.protein_dataset import dynamic_pad
 from transformers import AutoTokenizer, AutoModelForMaskedLM, LlamaForCausalLM, LlamaTokenizer, T5Tokenizer, T5EncoderModel, AutoModelForCausalLM, AutoModel
 from src.data.esm.sdk.api import LogitsConfig
-from model_zoom.procyon.model.model_unified import UnifiedProCyon
-from model_zoom.progen2.modeling_progen import ProGenForCausalLM
+# from model_zoom.procyon.model.model_unified import UnifiedProCyon
+# from model_zoom.progen2.modeling_progen import ProGenForCausalLM
 from tokenizers import Tokenizer
-from model_zoom.GearNet.data.protein import Protein
-from model_zoom.GearNet.data.transform import ProteinView
-from model_zoom.GearNet.data.transform import Compose
-from model_zoom.GearNet.data.geo_graph import GraphConstruction
-from model_zoom.GearNet.data.function import AlphaCarbonNode, SpatialEdge, KNNEdge, SequentialEdge
-from model_zoom.GearNet.gearnet import GeometryAwareRelationalGraphNeuralNetwork
+# from model_zoom.GearNet.data.protein import Protein
+# from model_zoom.GearNet.data.transform import ProteinView
+# from model_zoom.GearNet.data.transform import Compose
+# from model_zoom.GearNet.data.geo_graph import GraphConstruction
+# from model_zoom.GearNet.data.function import AlphaCarbonNode, SpatialEdge, KNNEdge, SequentialEdge
+# from model_zoom.GearNet.gearnet import GeometryAwareRelationalGraphNeuralNetwork
 from model_zoom.esm.utils.sampling import _BatchedESMProteinTensor
-from model_zoom.ProTrek.model.ProTrek.protrek_trimodal_model import ProTrekTrimodalModel
+# from model_zoom.ProTrek.model.ProTrek.protrek_trimodal_model import ProTrekTrimodalModel
 from vplm import TransformerForMaskedLM, TransformerConfig
 from vplm import VPLMTokenizer
 from peft import TaskType, get_peft_model
@@ -27,7 +27,7 @@ from peft import IA3Config, AdaLoraConfig, LoraConfig
 from vplm import VPLMTokenizer
 
 
-MODEL_ZOOM_PATH = '/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/model_zoom'
+MODEL_ZOOM_PATH = '/liuyunfan/qianyunhang/PFMBench/model_zoom'
 
 class BaseProteinModel(nn.Module):
     def __init__(self, device, **kwargs):

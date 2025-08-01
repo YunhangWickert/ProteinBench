@@ -1,8 +1,8 @@
 import os
 import sys
-import sys; sys.path.append("/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark")
-sys.path.append('/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/model_zoom')
-os.environ["WANDB_API_KEY"] = "ddb1831ecbd2bf95c3323502ae17df6e1df44ec0"
+import sys; sys.path.append("/liuyunfan/qianyunhang/ProteinBench")
+sys.path.append('/liuyunfan/qianyunhang/ProteinBench/model_zoom')
+os.environ["WANDB_API_KEY"] = "d4aae42367c9842a7ddfdf29258565305fdd5496"
 import warnings
 warnings.filterwarnings("ignore")
 # 打印当前工作目录

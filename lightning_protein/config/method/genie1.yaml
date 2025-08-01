@@ -1,0 +1,83 @@
+# @package _global_
+method_name: genie1
+dataset:
+  cache_dir: ${hydra:runtime.cwd}/../preprocess/.cache/jsonl
+  min_n_res: 60
+  max_n_res: 500
+  max_n_chain: 1
+
+diffusion:
+  n_timestep: 1000
+  schedule: cosine
+
+model:
+  # General
+  c_s: 128
+  c_p: 128
+
+
+  # Single feature network
+  c_pos_emb: 128
+  c_timestep_emb: 128
+
+  # Pair feature network
+  relpos_k: 32
+  template_type: v1
+
+  # Pair transform network
+  n_pair_transform_layer: 5
+  include_mul_update: True
+  include_tri_att: False
+  c_hidden_mul: 128
+  c_hidden_tri_att: 32
+  n_head_tri: 4
+  tri_dropout: 0.25
+  pair_transition_n: 4
+
+  # Structure netowrk
+  n_structure_layer: 5
+  n_structure_block: 1
+  c_hidden_ipa: 16
+  n_head_ipa: 12
+  n_qk_point: 4
+  n_v_point: 8
+  ipa_dropout: 0.1
+  n_structure_transition_layer: 1
+  structure_transition_dropout: 0.1
+
+experiment:
+  # Lightning Trainer Settings
+  resume_from_ckpt: False
+  resume_ckpt_path: null
+  strategy: ddp
+  use_distributed_sampler: True
+  use_wandb: False
+  check_val_every_n_epoch: null
+  num_epoch: 10
+  ckpt_freq: 2
+  lr_scheduler: null
+  monitor: train_loss
+  precision: 32
+
+  # Experiment metadata
+  seed: 100
+  batch_size: 2 #
+  log_every_n_step: 1000
+
+  condition_loss_weight: 1
+  lr: 0.0001
+
+
+inference:
+  ckpt_path: ${hydra:runtime.cwd}/resource/genie1/best-epoch=263-train_loss=0.677.ckpt
+  output_dir: ./genie1_outputs/
+  batch_size: 1 # number of samples with once inference
+  num_batches: 4
+  noise_scale: 0.6
+  min_n_res: 61
+  max_n_res: 320
+
+
+
+
+

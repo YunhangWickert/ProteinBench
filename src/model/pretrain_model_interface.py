@@ -1,4 +1,4 @@
-import sys; sys.path.append('/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/model_zoom')
+import sys; sys.path.append('/liuyunfan/qianyunhang/PFMBench/model_zoom')
 import torch
 import torch.nn as nn
 import os
@@ -10,7 +10,7 @@ from src.model.pretrain_modules import (
     SaPortModel, VenusPLMModel, ProSST2048Model, ProGen2Model, ProstT5Model, 
     ProtT5, DPLMModel, OntoProteinModel, ANKHBase, PGLMModel
 )
-MODEL_ZOOM_PATH = '/nfs_beijing/kubeflow-user/zhangyang_2024/workspace/protein_benchmark/model_zoom'
+MODEL_ZOOM_PATH = '/liuyunfan/qianyunhang/PFMBench/model_zoom'
 os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
 
