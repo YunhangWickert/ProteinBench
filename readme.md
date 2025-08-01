@@ -12,7 +12,7 @@ git clone https://github.com/YunhangWickert/ProteinBenchmark.git
 cd ProteinBenchmark
 
 # Install Python dependencies
-conda env create -f environment.yml
+conda env create -f environment.yaml
 conda activate proteinbench
 ```
 ## 🚀 Quick Start
