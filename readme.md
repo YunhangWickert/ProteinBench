@@ -24,19 +24,6 @@ cd ProteinBench/tasks
 env CUDA_VISIBLE_DEVICES=0  python main.py --eval_model function-eval --pretrain_model_name esm2_650m --lr 1e-4 --lr_scheduler cosine --config_name fitness_prediction
 ```
 
-### Zero-shot Evaluation
-
-```bash
-# Example: run zero-shot MSA KL-div scoring
-env CUDA_VISIBLE_DEVICES=0 \
-    python zeroshot/msa_kl_light.py \
-    --config_name zero_msa_kl \
-    --pretrain_model_name esm2_35m \
-    --offline 0
-```
-
-> Replace `--config_name`, `--pretrain_model_name`, and `--offline` flags as needed.
-
 ## Structure --> Sequence Evaluation
 
 ```bash
